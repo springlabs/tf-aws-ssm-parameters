@@ -11,7 +11,7 @@ resource "aws_ssm_parameter" "string_parameters" {
   overwrite = local.overwrite
   lifecycle {
     ignore_changes = [
-      value,
+      value,description,
     ]
   }
 }
@@ -27,7 +27,7 @@ resource "aws_ssm_parameter" "securestring_parameters" {
   overwrite = local.overwrite
   lifecycle {
     ignore_changes = [
-      value,
+      value,description,
     ]
   }
 }
@@ -42,7 +42,7 @@ resource "aws_ssm_parameter" "stringlist_parameters" {
   overwrite = local.overwrite
   lifecycle {
     ignore_changes = [
-      value,
+      value,description,
     ]
   }
 }
