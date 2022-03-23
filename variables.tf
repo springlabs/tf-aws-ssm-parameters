@@ -32,12 +32,6 @@ variable "securestring_tier" {
   description = "Valid values: `Standard`, `Advanced` and `Intelligent-Tiering`"
 }
 
-variable "stringlist_tier" {
-  type        = string
-  default     = "Standard"
-  description = "Valid values: `Standard`, `Advanced` and `Intelligent-Tiering`"
-}
-
 # Parameters
 variable "string_parameters" {
   type        = list(string)
@@ -49,12 +43,6 @@ variable "securestring_parameters" {
   type        = list(string)
   default     = []
   description = "List of SecureString(s)"
-}
-
-variable "stringlist_parameters" {
-  type        = list(string)
-  default     = []
-  description = "List of StringList(s)"
 }
 
 # Initial Value
@@ -70,12 +58,6 @@ variable "securestring_initial_value" {
   description = "Initial value for SecureString(s)"
 }
 
-variable "stringlist_initial_value" {
-  type        = string
-  default     = "empty"
-  description = "Initial value for StringList(s)"
-}
-
 # Locals - all variables are fetched as locals to allow manipulation of values in future versions
 
 locals {
@@ -89,15 +71,12 @@ locals {
   # Tier
   string_tier       = var.string_tier
   securestring_tier = var.securestring_tier
-  stringlist_tier   = var.stringlist_tier
 
   # Parameters
   string_parameters       = var.string_parameters
   securestring_parameters = var.securestring_parameters
-  stringlist_parameters   = var.stringlist_parameters
 
   # Initial Value
   string_initial_value       = var.string_initial_value
   securestring_initial_value = var.securestring_initial_value
-  stringlist_initial_value   = var.stringlist_initial_value
 }

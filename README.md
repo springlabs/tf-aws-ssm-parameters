@@ -53,9 +53,6 @@ module "app_params" {
 | string_initial_value | Initial value for String(s) | `string` | `"empty"` | no |
 | string_parameters | List of String(s) | `list(string)` | `[]` | no |
 | string_tier | Valid values: `Standard`, `Advanced` and `Intelligent-Tiering` | `string` | `"Standard"` | no |
-| stringlist_initial_value | Initial value for StringList(s) | `string` | `"empty"` | no |
-| stringlist_parameters | List of StringList(s) | `list(string)` | `[]` | no |
-| stringlist_tier | Valid values: `Standard`, `Advanced` and `Intelligent-Tiering` | `string` | `"Standard"` | no |
 
 ## Outputs
 
@@ -65,8 +62,6 @@ module "app_params" {
 | securestring_names | List of SecureString names |
 | string_arns | List of String ARNs |
 | string_names | List of String names |
-| stringlist_arns | List of StringList ARNs |
-| stringlist_names | List of StringList names |
 
 <!-- terraform_docs_end -->
 ## Troubleshooting
@@ -124,8 +119,6 @@ tfcoding-aws    | ]
 tfcoding-aws    | string_names = [
 tfcoding-aws    |   "/myapp/dev/LOG_LEVEL",
 tfcoding-aws    | ]
-tfcoding-aws    | stringlist_arns = []
-tfcoding-aws    | stringlist_names = []
 ```
 
 ### Test Suite
@@ -156,8 +149,6 @@ string_arns = [
 string_names = [
   "/myapp/dev/LOG_LEVEL",
 ]
-stringlist_arns = []
-stringlist_names = []
 
 \e[92m[SUCCESS]\e[0m Test passed as expected
 ```

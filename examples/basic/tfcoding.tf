@@ -21,6 +21,4 @@ locals {
   string_names = module.app_params.string_names
   securestring_arns = module.app_params.securestring_arns
   securestring_names = module.app_params.securestring_names
-  stringlist_arns = module.app_params.stringlist_arns
-  stringlist_names = module.app_params.stringlist_names  
 }
