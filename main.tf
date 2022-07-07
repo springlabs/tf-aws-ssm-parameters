@@ -5,7 +5,7 @@
 resource "aws_ssm_parameter" "string_parameters" {
   for_each  = toset(local.string_parameters)
   name      = "${local.prefix}${each.value}"
-  type      = "SecureString"
+  type      = "String"
   value     = local.string_initial_value
   tier      = local.string_tier
   overwrite = local.overwrite
