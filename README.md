@@ -10,14 +10,10 @@ To manage AWS SSM Parameters **values** programatically, use [unfor19/parzival](
 
 ```ruby
 module "app_params" {
-    source  = "unfor19/ssm-parameters/aws"
-    version = "0.0.2"
+    source  = "git::https://github.com/springlabs/tf-aws-ssm-parameters.git?ref=0.0.2-c"
 
     prefix = "/myapp/dev/"
 
-    string_parameters = [
-        "LOG_LEVEL",
-    ]
     securestring_parameters = [
         "GOOGLE_CLIENT_ID",
         "GOOGLE_CLIENT_SECRET"
@@ -50,9 +46,6 @@ module "app_params" {
 | securestring_initial_value | Initial value for SecureString(s) | `string` | `"empty"` | no |
 | securestring_parameters | List of SecureString(s) | `list(string)` | `[]` | no |
 | securestring_tier | Valid values: `Standard`, `Advanced` and `Intelligent-Tiering` | `string` | `"Standard"` | no |
-| string_initial_value | Initial value for String(s) | `string` | `"empty"` | no |
-| string_parameters | List of String(s) | `list(string)` | `[]` | no |
-| string_tier | Valid values: `Standard`, `Advanced` and `Intelligent-Tiering` | `string` | `"Standard"` | no |
 
 ## Outputs
 
@@ -60,8 +53,6 @@ module "app_params" {
 |------|-------------|
 | securestring_arns | List of SecureString ARNs |
 | securestring_names | List of SecureString names |
-| string_arns | List of String ARNs |
-| string_names | List of String names |
 
 <!-- terraform_docs_end -->
 ## Troubleshooting
@@ -104,7 +95,7 @@ Check the logs of the `tfcoding` Docker container
 ```bash
 # ... omitted for brevity
 tfcoding-aws    | Outputs:
-tfcoding-aws    | 
+tfcoding-aws    |
 tfcoding-aws    | securestring_arns = [
 tfcoding-aws    |   "arn:aws:ssm:us-east-1:000000000000:parameter/myapp/dev/GOOGLE_CLIENT_ID",
 tfcoding-aws    |   "arn:aws:ssm:us-east-1:000000000000:parameter/myapp/dev/GOOGLE_CLIENT_SECRET",
@@ -112,12 +103,6 @@ tfcoding-aws    | ]
 tfcoding-aws    | securestring_names = [
 tfcoding-aws    |   "/myapp/dev/GOOGLE_CLIENT_ID",
 tfcoding-aws    |   "/myapp/dev/GOOGLE_CLIENT_SECRET",
-tfcoding-aws    | ]
-tfcoding-aws    | string_arns = [
-tfcoding-aws    |   "arn:aws:ssm:us-east-1:000000000000:parameter/myapp/dev/LOG_LEVEL",
-tfcoding-aws    | ]
-tfcoding-aws    | string_names = [
-tfcoding-aws    |   "/myapp/dev/LOG_LEVEL",
 tfcoding-aws    | ]
 ```
 
@@ -142,12 +127,6 @@ securestring_arns = [
 securestring_names = [
   "/myapp/dev/GOOGLE_CLIENT_ID",
   "/myapp/dev/GOOGLE_CLIENT_SECRET",
-]
-string_arns = [
-  "arn:aws:ssm:us-east-1:000000000000:parameter/myapp/dev/LOG_LEVEL",
-]
-string_names = [
-  "/myapp/dev/LOG_LEVEL",
 ]
 
 \e[92m[SUCCESS]\e[0m Test passed as expected

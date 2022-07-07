@@ -20,12 +20,6 @@ variable "key_id" {
 }
 
 # Tiers
-variable "string_tier" {
-  type        = string
-  default     = "Standard"
-  description = "Valid values: `Standard`, `Advanced` and `Intelligent-Tiering`"
-}
-
 variable "securestring_tier" {
   type        = string
   default     = "Standard"
@@ -33,12 +27,6 @@ variable "securestring_tier" {
 }
 
 # Parameters
-variable "string_parameters" {
-  type        = list(string)
-  default     = []
-  description = "List of String(s)"
-}
-
 variable "securestring_parameters" {
   type        = list(string)
   default     = []
@@ -46,12 +34,6 @@ variable "securestring_parameters" {
 }
 
 # Initial Value
-variable "string_initial_value" {
-  type        = string
-  default     = "empty"
-  description = "Initial value for String(s)"
-}
-
 variable "securestring_initial_value" {
   type        = string
   default     = "empty"
@@ -69,14 +51,11 @@ locals {
   key_id = var.key_id
 
   # Tier
-  string_tier       = var.string_tier
   securestring_tier = var.securestring_tier
 
   # Parameters
-  string_parameters       = var.string_parameters
   securestring_parameters = var.securestring_parameters
 
   # Initial Value
-  string_initial_value       = var.string_initial_value
   securestring_initial_value = var.securestring_initial_value
 }
