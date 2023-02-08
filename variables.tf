@@ -40,6 +40,12 @@ variable "securestring_initial_value" {
   description = "Initial value for SecureString(s)"
 }
 
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
+}
+
 # Locals - all variables are fetched as locals to allow manipulation of values in future versions
 
 locals {

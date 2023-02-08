@@ -1,0 +1,15 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence.
+* @springlabs/devops @springlabs/engineering-director
+
+# Changes to the template files require DevOps approval
+.github/ @springlabs/devops @springlabs/engineering-director
+.pre-commit-config.yaml @springlabs/devops @springlabs/engineering-director
+
+# Changes to code ownership require eng director approval
+.github/CODEOWNERS @springlabs/security @springlabs/engineering-director
+
+# Changes to Terraform code require DevOps approval
+*.tf @springlabs/devops @springlabs/engineering-director
+*.tfvars @springlabs/devops @springlabs/engineering-director
+*.tfbackend @springlabs/devops @springlabs/engineering-director

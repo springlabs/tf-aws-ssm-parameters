@@ -1,0 +1,12 @@
+name: "Check PR Title"
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  check-pr-title:
+    uses: springlabs/gh-workflows/.github/workflows/pr-title.yml@main
