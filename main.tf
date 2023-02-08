@@ -30,4 +30,5 @@ resource "aws_ssm_parameter" "securestring_parameters" {
       value, description,
     ]
   }
+  tags = var.tags
 }
