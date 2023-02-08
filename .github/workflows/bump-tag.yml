@@ -1,0 +1,25 @@
+name: Bump Tag
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      bump_type:
+        type: choice
+        description: Which part of the version to increment.
+        default: none
+        options:
+          - major
+          - minor
+          - patch
+          - none
+jobs:
+  bump-tag:
+    uses: springlabs/gh-workflows/.github/workflows/bump-tag.yml@main
+    with:
+      bump_type: ${{ inputs.bump_type || 'none' }}
+      release_branches: main
+      with_v: true
+    secrets:
+      envPAT: ${{ secrets.BUMP_TAG_PAT }}
