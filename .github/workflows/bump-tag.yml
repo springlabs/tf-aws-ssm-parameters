@@ -2,7 +2,7 @@ name: Bump Tag
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
     inputs:
       bump_type:
