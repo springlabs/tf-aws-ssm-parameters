@@ -22,4 +22,4 @@ jobs:
       release_branches: main
       with_v: true
     secrets:
-      envPAT: ${{ secrets.BUMP_TAG_PAT }}
+      envPAT: ${{ secrets.GIT_CHECKOUT_TOKEN }}
